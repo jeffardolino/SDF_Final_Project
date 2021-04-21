@@ -1,1 +1,26 @@
-Sign In Form Pseudocode (Assume HTML Form is Created and user has an account)Create username, password, dbPassword, passwordHash variablesinitialize dbPassword to nullestablish database connectionuse form data to set username variableuse form data to set password variable(assume usernames are unique or email was used)(assume passwords cannot be null)(assume passwords were hashed before being stored in database)for each item in database	if username from database matches form username		set password hash from matching record to dbPasswordif dbPassword is null	return errorhash form password and set to passwordHashif dbPassword matches passwordHash	redirect to home page and return successelse	return error
+Sign In Form Pseudocode (Assume HTML Form is Created and user has an account)
+
+Create username, password, dbPassword, passwordHash variables
+initialize dbPassword to null
+
+establish database connection
+
+use form data to set username variable
+use form data to set password variable
+
+(assume usernames are unique or email was used)
+(assume passwords cannot be null)
+(assume passwords were hashed before being stored in database)
+
+for each item in database
+	if username from database matches form username
+		set password hash from matching record to dbPassword
+if dbPassword is null
+	return error
+
+hash form password using Bcrypt and set to passwordHash
+
+if dbPassword matches passwordHash
+	redirect to home page and return success
+else
+	return error
